@@ -1,0 +1,31 @@
+# Demonstração das funções de string templates
+from string import Template
+
+
+def main():
+    # Formatação tradicional usando o método format()
+    frase = "Qual a melhor linguagem de programação? {0} com {1}".format(
+        "Python", "Django")
+    print(frase)
+    
+    # Crie um template com placeholders
+    templ = Template("Qual a melhor linguagem de programação? ${linguagem} com ${framework}")
+    
+    # Use o método substitute passando argumentos nomeados
+    frase_2 = templ.substitute(
+        linguagem="Python",
+        framework="Django"
+    )
+    print(frase_2)
+    
+    # Use  o método substitute com um dicionário
+    dados = { 
+        "linguagem": "Python",
+        "framework": "Django"
+    }
+    frase_3 = templ.substitute(dados)    
+    print(frase_3)
+
+
+if __name__ == "__main__":
+    main()
